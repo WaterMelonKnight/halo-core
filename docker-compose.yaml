@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  # 这是一个标准的 Redis 容器
+  redis:
+    image: redis:7-alpine
+    container_name: halo-redis
+    ports:
+      - "6379:6379"
+    # 开启持久化，防止你重启 Codespace 后 Key 丢了
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

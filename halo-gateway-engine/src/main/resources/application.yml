@@ -1,0 +1,6 @@
+spring:
+  data:
+    redis:
+      host: localhost  # 在 Codespace 里，Docker 端口会映射到 localhost
+      port: 6379
+      database: 0
