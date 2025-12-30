@@ -1,0 +1,5 @@
+/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/RequestLoggingFilter.java
+/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/AIChatController.java
+/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/domain/router/RouterService.java
+/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/infrastructure/filter/TokenCountingFilter.java
+/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/Application.java

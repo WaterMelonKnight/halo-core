@@ -1,24 +1,21 @@
 package com.watermelon.halo.operator;
 
 import io.fabric8.kubernetes.api.model.Namespaced;
+import io.fabric8.kubernetes.client.CustomResource;
+import io.fabric8.kubernetes.model.annotation.Group;
+import io.fabric8.kubernetes.model.annotation.Version;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public class FinancialTask implements Namespaced {
-    private String apiVersion = "halo.watermelon.io/v1";
-    private String kind = "FinancialTask";
-
-    private Spec spec;
-
-    public static class Spec {
-        private String targetToken;
-        private double threshold;
-
-        // getters/setters
-        public String getTargetToken() { return targetToken; }
-        public void setTargetToken(String targetToken) { this.targetToken = targetToken; }
-        public double getThreshold() { return threshold; }
-        public void setThreshold(double threshold) { this.threshold = threshold; }
+@Group("halo.watermelon.io") // CRD 的 Group
+@Version("v1alpha1")         // CRD 的 Version
+@Data
+@EqualsAndHashCode(callSuper = true)
+// 关键修复：必须继承 CustomResource，并指定 Spec 和 Status（如果没有 Status 用 Void）
+public class FinancialTask extends CustomResource<FinancialTaskSpec, Void> implements Namespaced {
+    
+    // 这是一个空的构造函数，Fabric8 需要它
+    public FinancialTask() {
+        super();
     }
-
-    public Spec getSpec() { return spec; }
-    public void setSpec(Spec spec) { this.spec = spec; }
 }
