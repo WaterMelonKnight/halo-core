@@ -1,48 +1,57 @@
 package com.watermelon.halo.ghost.sidecar;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 @Component
 public class FinancialAgent {
 
     private static final Logger log = LoggerFactory.getLogger(FinancialAgent.class);
-    private final RestClient restClient;
+    private final RestClient gatewayClient;
+    private final CryptoService cryptoService; // 注入新服务
 
-    public FinancialAgent(RestClient.Builder builder) {
-        // 连接到本地的 Gateway (端口 8080)
-        this.restClient = builder.baseUrl("http://localhost:8080").build();
+    // 构造函数注入
+    public FinancialAgent(RestClient.Builder builder, CryptoService cryptoService) {
+        this.gatewayClient = builder.baseUrl("http://localhost:8080").build();
+        this.cryptoService = cryptoService;
     }
 
-    // 每 20 秒执行一次 (模拟高频交易分析)
-    @Scheduled(fixedRate = 20000)
+    @Scheduled(fixedRate = 15000) // 改成 15秒一次
     public void analyzeMarket() {
-        log.info("🕵️ [Agent] Starting market analysis task...");
+        log.info("🕵️ [Agent] Fetching real-world market data...");
 
         try {
-            // 1. 构造发给 DeepSeek 的提示词
-            String prompt = "我是量化交易员。请用一句话随机模拟分析当前的 Bitcoin 走势，风格要专业。";
-            
-            // 2. 调用网关 (Gateway)
-            Map response = restClient.post()
+            // 1. 获取真实价格
+            String btcPrice = cryptoService.getBitcoinPrice();
+            String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+            // 2. 构造基于事实的 Prompt
+            String prompt = String.format(
+                "现在时间是 %s，比特币(BTC)的实时价格是 %s USDT。请扮演一位激进的华尔街交易员，用简短、犀利的一句话点评当前价格，并给出'买入'或'卖出'的各种搞怪理由。",
+                time, btcPrice
+            );
+
+            // 3. 调用网关
+            Map response = gatewayClient.post()
                     .uri("/v1/chat/completions")
                     .body(Map.of("message", prompt))
                     .retrieve()
                     .body(Map.class);
 
-            // 3. 处理结果
             if (response != null && response.containsKey("choices")) {
-                String aiAdvice = response.get("choices").toString();
-                log.info("🤖 [DeepSeek Advice]: {}", aiAdvice);
+                log.info("📈 [BTC Price]: ${}", btcPrice);
+                log.info("🤖 [DeepSeek]: {}", response.get("choices"));
             }
 
         } catch (Exception e) {
-            log.error("❌ Failed to call Gateway: {}", e.getMessage());
+            log.error("❌ Task failed: {}", e.getMessage());
         }
     }
 }
