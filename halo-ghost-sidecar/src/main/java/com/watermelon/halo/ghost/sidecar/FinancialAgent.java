@@ -23,8 +23,7 @@ public class FinancialAgent {
         this.cryptoService = cryptoService;
     }
 
-    @Scheduled(fixedRate = 15000) // 改成 15秒一次
-    public void analyzeMarket() {
+    private performAnalysis(){
         log.info("🕵️ [Agent] Fetching real-world market data...");
 
         try {
@@ -52,6 +51,28 @@ public class FinancialAgent {
 
         } catch (Exception e) {
             log.error("❌ Task failed: {}", e.getMessage());
+        }
+    }
+
+    @Scheduled(fixedRate = 15000) // 改成 15秒一次
+    public void analyzeMarket() {
+    // 定义一个锁的 key，比如 "task:market-analysis"
+        RLock lock = redissonClient.getLock("halo:sidecar:task:market-analysis");
+
+        // 尝试抢锁：等待 0 秒，锁过期时间 9 秒（任务间隔10秒，所以9秒后自动释放给下一轮）
+        try {
+            if (lock.tryLock(0, 9, TimeUnit.SECONDS)) {
+                log.info("🔒 抢到锁了！我是 Leader，开始干活...");
+                // === 这里放你之前的 DeepSeek 调用逻辑 ===
+                performAnalysis(); 
+            } else {
+                log.info("✋ 没抢到锁，其他 Sidecar 正在干活，我休息。");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            // 注意：因为设置了自动过期，这里其实可以不手动 unlock，
+            // 或者判断 if(lock.isHeldByCurrentThread()) lock.unlock();
         }
     }
 }
