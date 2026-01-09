@@ -24,17 +24,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # 3. 这是一个好用的数据库管理界面 (可选，省得你敲命令行查库)
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: halo-pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@halo.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "5050:80"
-    depends_on:
-      - halo-postgres
 
 volumes:
   redis_data:
