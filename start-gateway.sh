@@ -1,0 +1,1 @@
+mvn -pl halo-gateway-engine spring-boot:run

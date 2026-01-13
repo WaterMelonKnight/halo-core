@@ -1,0 +1,4 @@
+/workspaces/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTask.java
+/workspaces/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTaskSpec.java
+/workspaces/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/Application.java
+/workspaces/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTaskReconciler.java

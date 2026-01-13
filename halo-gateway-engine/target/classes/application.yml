@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: standard_route
+          uri: http://example.org
+          predicates:
+            - Path=/standard/**
+
+  ai:
+      openai:
+        # 1. 显式指定读取这个名字的变量，避免混乱
+        api-key: ${SPRING_AI_OPENAI_API_KEY} 
+        # 2. 补上 base-url，强制指定读取这个变量
+        base-url: ${SPRING_AI_OPENAI_BASE_URL:https://api.deepseek.com}
+        chat:
+          options:
+            model: deepseek-chat
+data:
+  redis:
+    host: localhost  # 在 Codespace 里，Docker 端口会映射到 localhost
+    port: 6379
+    database: 0
