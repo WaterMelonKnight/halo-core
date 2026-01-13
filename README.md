@@ -57,20 +57,24 @@ We are building in public! Here is our current progress:
 ```bash
 # Starts Redis (for locks) and PostgreSQL (for config)
 docker-compose up -d
-2. Configure Environment
-Bash
+```
 
+### 2. Configure Environment
+```bash
 # Set your API Key (Support DeepSeek/OpenAI)
 export SPRING_AI_OPENAI_API_KEY=sk-your-key
-export SPRING_AI_OPENAI_BASE_URL=[https://api.deepseek.com](https://api.deepseek.com)
-3. Run the System
-Bash
+export SPRING_AI_OPENAI_BASE_URL=https://api.deepseek.com
+```
 
+### 3. Run the System
+```bash
 # Terminal A: Start the Gateway (The Brain)
 mvn -pl halo-gateway-engine spring-boot:run
 
 # Terminal B: Start the Sidecar (The Agent)
 mvn -pl halo-ghost-sidecar spring-boot:run
+```
+
 You will see the Sidecar automatically acquiring the Redis lock and analyzing market data!
 
 🤝 Contributing
