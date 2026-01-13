@@ -23,7 +23,7 @@ public class FinancialAgent {
         this.cryptoService = cryptoService;
     }
 
-    private performAnalysis(){
+    private void performAnalysis(){
         log.info("🕵️ [Agent] Fetching real-world market data...");
 
         try {
