@@ -62,12 +62,27 @@ docker-compose up -d
 ### 2. Configure Environment
 ```bash
 # Set your API Key (Support DeepSeek/OpenAI)
-export SPRING_AI_OPENAI_API_KEY=sk-your-key
-export SPRING_AI_OPENAI_BASE_URL=https://api.deepseek.com
+
 ```
+```sql
+-- you need to create a table with sql below
+CREATE TABLE ai_provider_config(
+    id bigint,
+    provider_name character varying,
+    base_url character varying,
+    api_key character varying,
+    is_active boolean,
+    updated_at timestamp without time zone,
+    model character varying,
+    PRIMARY KEY(id)
+)
+```
+```bash
+# you need to get a ai model api key to insert to the local postgres db
+
 
 ### 3. Run the System
-```bash
+
 # Terminal A: Start the Gateway (The Brain)
 mvn -pl halo-gateway-engine spring-boot:run
 

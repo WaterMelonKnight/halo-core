@@ -1,5 +1,9 @@
 com/watermelon/halo/gateway/RequestLoggingFilter.class
 com/watermelon/halo/gateway/AIChatController.class
+com/watermelon/halo/gateway/config/AiConfig.class
 com/watermelon/halo/gateway/Application.class
 com/watermelon/halo/gateway/infrastructure/filter/TokenCountingFilter.class
 com/watermelon/halo/gateway/domain/router/RouterService.class
+com/watermelon/halo/gateway/handler/ChatHandler.class
+com/watermelon/halo/gateway/repository/AiProviderConfigRepository.class
+com/watermelon/halo/gateway/model/AiProviderConfig.class

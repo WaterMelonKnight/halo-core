@@ -4,6 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestClient;
 import org.springframework.context.annotation.Bean;
+import com.watermelon.halo.gateway.repository.AiProviderConfigRepository;
+import com.watermelon.halo.gateway.model.AiProviderConfig;
+import org.springframework.ai.openai.api.OpenAiApi;
+import org.springframework.context.annotation.Primary;
+
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {

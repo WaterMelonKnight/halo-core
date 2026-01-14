@@ -20,7 +20,7 @@ spring:
           options:
             model: deepseek-chat
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/halo_cloud_db
+    url: r2dbc:postgresql://localhost:5432/halo_cloud_db
     username: halo_user
     password: halo_password
 data:

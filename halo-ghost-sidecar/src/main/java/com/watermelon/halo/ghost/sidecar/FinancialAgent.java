@@ -1,5 +1,7 @@
 package com.watermelon.halo.ghost.sidecar;
 
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -9,18 +11,21 @@ import org.springframework.web.client.RestClient;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class FinancialAgent {
 
     private static final Logger log = LoggerFactory.getLogger(FinancialAgent.class);
     private final RestClient gatewayClient;
-    private final CryptoService cryptoService; // 注入新服务
+    private final CryptoService cryptoService;
+    private final RedissonClient redissonClient;
 
     // 构造函数注入
-    public FinancialAgent(RestClient.Builder builder, CryptoService cryptoService) {
+    public FinancialAgent(RestClient.Builder builder, CryptoService cryptoService, RedissonClient redissonClient) {
         this.gatewayClient = builder.baseUrl("http://localhost:8080").build();
         this.cryptoService = cryptoService;
+        this.redissonClient = redissonClient;
     }
 
     private void performAnalysis(){
