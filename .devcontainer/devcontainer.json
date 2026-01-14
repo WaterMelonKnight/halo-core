@@ -1,0 +1,40 @@
+{
+  "name": "Halo AI Gateway (Spring Boot)",
+  // 使用微软官方的 Java 21 镜像 (Spring Boot 3 推荐)
+  // 如果你用的是 Java 17，把这里的 '1-21' 改成 '1-17'
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+
+  // 启用 Docker-in-Docker，这样你可以在 Codespaces 里运行 docker-compose (比如启动你的 Postgres)
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "enableNonRootDocker": "true"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // 自动更新构建配置，保证依赖变更后立刻生效
+        "java.configuration.updateBuildConfiguration": "automatic",
+        // 让 Spring Boot 插件更智能
+        "spring-boot.ls.java.home": "/usr/local/sdkman/candidates/java/current"
+      },
+      // 核心插件清单
+      "extensions": [
+        "vscjava.vscode-java-pack",       // Java 基础全家桶 (Maven, Debugger, Test Runner)
+        "vmware.vscode-spring-boot",      // Spring Boot 专用插件 (YAML提示, Bean导航)
+        "vscjava.vscode-lombok",          // Lombok 支持 (没有这个 @Data 会报错)
+        "humao.rest-client",              // REST Client (可以直接在IDE里测试接口，不用切Postman)
+        "eamodio.gitlens"                 // Git 增强工具 (查看代码是谁什么时候写的)
+      ]
+    }
+  },
+
+  // 容器创建后自动执行的命令
+  // 这里的命令会自动下载 Maven 依赖，这样你进容器时，代码补全就已经准备好了
+  "postCreateCommand": "mvn clean install -DskipTests",
+
+  //以此用户身份运行
+  "remoteUser": "vscode"
+}

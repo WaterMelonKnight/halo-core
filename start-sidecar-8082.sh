@@ -1,0 +1,1 @@
+mvn -pl halo-ghost-sidecar spring-boot:run -Dspring-boot.run.arguments="--server.port=8082"
