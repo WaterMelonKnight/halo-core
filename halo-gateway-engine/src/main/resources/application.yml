@@ -5,20 +5,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: standard_route
-          uri: http://example.org
+        - id: deepseek_route
+          uri: https://api.deepseek.com  # 目标地址写在这里
           predicates:
-            - Path=/standard/**
+            - Path=/v1/chat/** # 拦截规则
+#          filters:
+#            - name: DeepSeekAuth
 
-  ai:
-      openai:
-        # 1. 显式指定读取这个名字的变量，避免混乱
-        api-key: ${SPRING_AI_OPENAI_API_KEY} 
-        # 2. 补上 base-url，强制指定读取这个变量
-        base-url: ${SPRING_AI_OPENAI_BASE_URL:https://api.deepseek.com}
-        chat:
-          options:
-            model: deepseek-chat
   r2dbc:
     url: r2dbc:postgresql://localhost:5432/halo_cloud_db
     username: halo_user

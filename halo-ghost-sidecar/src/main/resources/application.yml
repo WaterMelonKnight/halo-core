@@ -2,6 +2,12 @@ server:
   port: 8081
 
 spring:
-  redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
+  ai:
+    openai:
+      # 指向你的 Gateway 地址
+      base-url: http://localhost:8080
+      # 这里填什么都可以，Gateway 那边会拦截并替换成真的 DeepSeek Key
+      api-key: internal-sidecar-token
+      chat:
+        options:
+          model: deepseek-chat
