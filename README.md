@@ -36,8 +36,8 @@ graph TD
     
     subgraph "K8s Worker Node"
         subgraph "Business Pod (Your App)"
-            Main[☕ User Java App\n(Main Container)]
-            Sidecar[👻 Halo Ghost Sidecar\n(Agent Container)]
+            Main["☕ User Java App\n(Main Container)"]
+            Sidecar["👻 Halo Ghost Sidecar\n(Agent Container)"]
             
             Main <-->|Localhost / Shared Vol| Sidecar
         end
@@ -45,12 +45,12 @@ graph TD
     
     subgraph "Halo Cloud Mesh"
         Gateway -->|1. Route & Auth| Sidecar
-        Sidecar -->|2. Perception| ExternalAPI[📊 Binance / Web3 / Steam APIs]
-        Sidecar -->|3. Reasoning| DeepSeek[🤖 DeepSeek / OpenAI LLM]
-        Sidecar -.->|4. Load Skills| CRD[📄 K8s CRD: AgentSkill]
+        Sidecar -->|2. Perception| ExternalAPI["📊 Binance / Web3 / Steam APIs"]
+        Sidecar -->|3. Reasoning| DeepSeek["🤖 DeepSeek / OpenAI LLM"]
+        Sidecar -.->|4. Load Skills| CRD["📄 K8s CRD: AgentSkill"]
     end
 
-    Gateway -.->|Config| Postgres[(🐘 PostgreSQL)]
+    Gateway -.->|Config| Postgres[("🐘 PostgreSQL")]
 ```
 
 ## 🌟 Key Features
