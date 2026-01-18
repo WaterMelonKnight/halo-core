@@ -1,4 +1,8 @@
 /root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTaskReconciler.java
+/root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/crd/HaloAgent.java
 /root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTask.java
 /root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/FinancialTaskSpec.java
+/root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/crd/HaloAgentSpec.java
+/root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/crd/HaloAgentStatus.java
+/root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/reconciler/HaloAgentReconciler.java
 /root/halo-core/halo-sentinel-operator/src/main/java/com/watermelon/halo/operator/Application.java

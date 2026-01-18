@@ -1,0 +1,1 @@
+docker build -t halo-sidecar:v1 -f halo-ghost-sidecar/Dockerfile halo-ghost-sidecar/

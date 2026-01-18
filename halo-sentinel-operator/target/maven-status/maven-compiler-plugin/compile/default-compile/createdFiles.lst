@@ -1,5 +1,9 @@
-javaoperatorsdk/reconcilers
+com/watermelon/halo/operator/crd/HaloAgentSpec.class
+com/watermelon/halo/operator/crd/HaloAgentStatus.class
 com/watermelon/halo/operator/FinancialTaskSpec.class
 com/watermelon/halo/operator/Application.class
-com/watermelon/halo/operator/FinancialTask.class
+com/watermelon/halo/operator/reconciler/HaloAgentReconciler.class
 com/watermelon/halo/operator/FinancialTaskReconciler.class
+javaoperatorsdk/reconcilers
+com/watermelon/halo/operator/FinancialTask.class
+com/watermelon/halo/operator/crd/HaloAgent.class

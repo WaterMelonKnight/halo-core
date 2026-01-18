@@ -1,0 +1,1 @@
+docker build -t halo-gateway:v1 -f halo-gateway-engine/Dockerfile halo-gateway-engine/
