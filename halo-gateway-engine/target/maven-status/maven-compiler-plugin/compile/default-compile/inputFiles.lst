@@ -1,6 +1,6 @@
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/filter/HaloGatewayFilter.java
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/RequestLoggingFilter.java
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/model/AiProviderConfig.java
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/repository/AiProviderConfigRepository.java
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/domain/router/RouterService.java
-/workspaces/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/Application.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/filter/HaloGatewayFilter.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/RequestLoggingFilter.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/repository/AiProviderConfigRepository.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/model/AiProviderConfig.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/Application.java
+/root/halo-core/halo-gateway-engine/src/main/java/com/watermelon/halo/gateway/domain/router/RouterService.java

@@ -1,8 +1,9 @@
 package com.watermelon.halo.ghost.sidecar;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
-import java.util.Map;
 
 @Service
 public class CryptoService {
@@ -19,12 +20,18 @@ public class CryptoService {
             // 获取 BTC/USDT 实时价格
             // 返回格式: {"symbol":"BTCUSDT","price":"42000.00"}
             Map response = restClient.get()
-                    .uri("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT")
+                    .uri("https://api.coinbase.com/v2/prices/BTC-USD/spot")
                     .retrieve()
                     .body(Map.class);
-            
-            if (response != null && response.get("price") != null) {
-                return response.get("price").toString();
+            System.out.println("response:" + response);
+            if (response != null) {
+                Map<String, Object> map = (Map)response.get("data");
+                System.out.println("data:" + map);
+                if (map != null){
+                    System.out.println("amount:" + map.get("amount"));
+                    return map.get("amount").toString();
+                }
+                
             }
         } catch (Exception e) {
             // 容错处理：如果连不上币安，返回一个默认值或者 null

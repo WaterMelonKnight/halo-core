@@ -1,6 +1,6 @@
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/config/ChatConfig.java
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/SidecarBootstrap.java
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/skills/config/SkillsConfig.java
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/sidecar/CryptoService.java
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/sidecar/FinancialAgent.java
-/workspaces/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/LockManager.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/sidecar/CryptoService.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/skills/config/SkillsConfig.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/LockManager.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/SidecarBootstrap.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/sidecar/FinancialAgent.java
+/root/halo-core/halo-ghost-sidecar/src/main/java/com/watermelon/halo/ghost/config/ChatConfig.java

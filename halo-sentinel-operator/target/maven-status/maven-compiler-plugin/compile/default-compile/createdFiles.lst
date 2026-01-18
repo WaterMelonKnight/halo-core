@@ -1,5 +1,5 @@
-com/watermelon/halo/operator/FinancialTaskSpec.class
 javaoperatorsdk/reconcilers
+com/watermelon/halo/operator/FinancialTaskSpec.class
 com/watermelon/halo/operator/Application.class
 com/watermelon/halo/operator/FinancialTask.class
 com/watermelon/halo/operator/FinancialTaskReconciler.class

@@ -1,6 +1,6 @@
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisConfiguration.java
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisDistributedLock.java
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/DistributedLock.java
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisLock.java
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/Result.java
-/workspaces/halo-core/halo-common/src/main/java/com/watermelon/halo/common/GlobalException.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisDistributedLock.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/GlobalException.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisConfiguration.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/RedisLock.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/DistributedLock.java
+/root/halo-core/halo-common/src/main/java/com/watermelon/halo/common/Result.java
