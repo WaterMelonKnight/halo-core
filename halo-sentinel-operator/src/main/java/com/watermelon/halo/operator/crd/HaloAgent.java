@@ -11,6 +11,6 @@ import io.fabric8.kubernetes.api.model.Namespaced; // 加上这个，表示资�
 @Group("halo.cloud")
 @Version("v1")
 @Kind("HaloAgent")
-public class HaloAgent extends CustomResource<HaloAgentSpec, HaloAgentStatus> {
+public class HaloAgent extends CustomResource<HaloAgentSpec, HaloAgentStatus> implements Namespaced {
     // 这是一个标准 CRD 类，继承 CustomResource
 }

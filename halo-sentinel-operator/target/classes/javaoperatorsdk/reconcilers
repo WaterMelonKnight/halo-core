@@ -1,2 +1,2 @@
 com.watermelon.halo.operator.FinancialTaskReconciler,com.watermelon.halo.operator.FinancialTask
-com.watermelon.halo.operator.reconciler.HaloAgentReconciler,com.watermelon.halo.operator.crd.HaloAgent
+com.watermelon.halo.operator.reconciler.HaloAgentReconciler,io.fabric8.kubernetes.client.CustomResource
